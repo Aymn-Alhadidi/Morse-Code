@@ -1,0 +1,11 @@
+D:\mohammed abohdhd\Test in C#(Windows framework)\bin\Debug\Test in C#(Windows framework).exe.config
+D:\mohammed abohdhd\Test in C#(Windows framework)\bin\Debug\Test in C#(Windows framework).exe
+D:\mohammed abohdhd\Test in C#(Windows framework)\bin\Debug\Test in C#(Windows framework).pdb
+D:\mohammed abohdhd\Test in C#(Windows framework)\obj\Debug\Morse Code.csproj.AssemblyReference.cache
+D:\mohammed abohdhd\Test in C#(Windows framework)\obj\Debug\Morse Code.csproj.SuggestedBindingRedirects.cache
+D:\mohammed abohdhd\Test in C#(Windows framework)\obj\Debug\Test_in_C__Windows_framework_.Form1.resources
+D:\mohammed abohdhd\Test in C#(Windows framework)\obj\Debug\Test_in_C__Windows_framework_.Properties.Resources.resources
+D:\mohammed abohdhd\Test in C#(Windows framework)\obj\Debug\Morse Code.csproj.GenerateResource.cache
+D:\mohammed abohdhd\Test in C#(Windows framework)\obj\Debug\Morse Code.csproj.CoreCompileInputs.cache
+D:\mohammed abohdhd\Test in C#(Windows framework)\obj\Debug\Test in C#(Windows framework).exe
+D:\mohammed abohdhd\Test in C#(Windows framework)\obj\Debug\Test in C#(Windows framework).pdb
