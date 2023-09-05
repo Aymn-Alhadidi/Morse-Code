@@ -48,21 +48,23 @@
             // 
             this.txtEnglish.BackColor = System.Drawing.Color.Teal;
             this.txtEnglish.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnglish.Location = new System.Drawing.Point(388, 139);
+            this.txtEnglish.Location = new System.Drawing.Point(388, 133);
             this.txtEnglish.Multiline = true;
             this.txtEnglish.Name = "txtEnglish";
-            this.txtEnglish.Size = new System.Drawing.Size(349, 166);
+            this.txtEnglish.Size = new System.Drawing.Size(354, 172);
             this.txtEnglish.TabIndex = 1;
+            this.txtEnglish.TextChanged += new System.EventHandler(this.txtEnglish_TextChanged);
             // 
             // txtMorse
             // 
             this.txtMorse.BackColor = System.Drawing.Color.Teal;
             this.txtMorse.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtMorse.Location = new System.Drawing.Point(388, 324);
+            this.txtMorse.Location = new System.Drawing.Point(388, 318);
             this.txtMorse.Multiline = true;
             this.txtMorse.Name = "txtMorse";
-            this.txtMorse.Size = new System.Drawing.Size(349, 166);
+            this.txtMorse.Size = new System.Drawing.Size(354, 172);
             this.txtMorse.TabIndex = 2;
+            this.txtMorse.TextChanged += new System.EventHandler(this.txtMorse_TextChanged);
             // 
             // Form1
             // 

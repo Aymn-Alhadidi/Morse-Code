@@ -18,7 +18,30 @@ namespace Test_in_C__Windows_framework_
             InitializeComponent();
         }
 
+        static List<string> SplitString(string Text, string delim)
+        {
+            List<string> vString = new List<string>();
+            int Pos = 0;
+            string sWord;
 
+            while ((Pos = Text.IndexOf(delim)) != -1)
+            {
+                sWord = Text.Substring(0, Pos); // Store the word
+
+
+                if (sWord != "")
+                {
+                    vString.Add(sWord);
+                }
+
+                Text = Text.Remove(0, Pos + delim.Length);
+            }
+
+            if (Text != delim)
+                vString.Add(Text);
+
+            return vString;
+        }
 
         private void Form1_Load(object sender, EventArgs e)
         {
@@ -28,92 +51,119 @@ namespace Test_in_C__Windows_framework_
         }
 
 
-        public static string LetterToMorse(string letter)
+        public static string LetterToMorse(char letter)
         {
-            switch (letter.ToLower())
+            switch (Char.ToLower(letter))
             {
-                case "a":
+                case 'a':
                     return ".-";
-                case "b":
+                case 'b':
                     return "-...";
-                case "c":
+                case 'c':
                     return "-.-.";
-                case "d":
+                case 'd':
                     return "-..";
-                case "e":
+                case 'e':
                     return ".";
-                case "f":
+                case 'f':
                     return "..-.";
-                case "g":
+                case 'g':
                     return "--.";
-                case "h":
+                case 'h':
                     return "....";
-                case "i":
+                case 'i':
                     return "..";
-                case "j":
+                case 'j':
                     return ".---";
-                case "k":
+                case 'k':
                     return "-.-";
-                case "l":
+                case 'l':
                     return ".-..";
-                case "m":
+                case 'm':
                     return "--";
-                case "n":
+                case 'n':
                     return "-.";
-                case "o":
+                case 'o':
                     return "---";
-                case "p":
+                case 'p':
                     return ".--.";
-                case "q":
+                case 'q':
                     return "--.-";
-                case "r":
+                case 'r':
                     return ".-.";
-                case "s":
+                case 's':
                     return "...";
-                case "t":
+                case 't':
                     return "-";
-                case "u":
+                case 'u':
                     return "..-";
-                case "v":
+                case 'v':
                     return "...-";
-                case "w":
+                case 'w':
                     return ".--";
-                case "x":
+                case 'x':
                     return "-..-";
-                case "y":
+                case 'y':
                     return "-.--";
-                case "z":
+                case 'z':
                     return "--..";
-
-                case "1":
+                case '1':
                     return ".--.";
-                case "2":
+                case '2':
                     return "..-..";
-                case "3":
+                case '3':
                     return "...-.";
-                case "4":
+                case '4':
                     return "....-";
-                case "5":
+                case '5':
                     return "---";
-                case "6":
+                case '6':
                     return "......";
-                case "7":
+                case '7':
                     return "--..";
-                case "8":
+                case '8':
                     return "-....";
-                case "9":
+                case '9':
                     return "-..-";
-                case "0":
+                case '0':
                     return "____"; // Special case
-
-                case " ":
-                    return " / "; // to sperate between words
-                   
+                case ' ':
+                    return " / "; // to separate between words
                 default:
-                    return "Worng Letter";
+                    return "Wrong Letter";
             }
         }
+        public static string WordToMorse(string OneWord)
+        {
+            string MorseWord = "";
 
+            for(short i = 0; i<OneWord.Length; i++)
+            {
+                MorseWord += LetterToMorse(OneWord[i]) + " ";
+            }
+            return MorseWord;
+        }
 
+        static string ConvertToMorse(string Text)
+        {
+            string Mword = "";
+            List<string> Words = SplitString(Text, " ");
+
+            foreach (string item in Words)
+            {
+                Mword += WordToMorse(item) + "/ ";
+            }
+
+            return Mword;
+        }
+        private void txtEnglish_TextChanged(object sender, EventArgs e)
+        {
+            txtMorse.Text = ConvertToMorse(txtEnglish.Text);
+        }
+
+        private void txtMorse_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
