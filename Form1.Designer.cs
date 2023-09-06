@@ -28,9 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.txtEnglish = new System.Windows.Forms.TextBox();
             this.txtMorse = new System.Windows.Forms.TextBox();
+            this.timerOneMessage = new System.Windows.Forms.Timer(this.components);
+            this.lbShowMessage = new System.Windows.Forms.Label();
+            this.timer_ofMessage = new System.Windows.Forms.Timer(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,12 +70,31 @@
             this.txtMorse.TabIndex = 2;
             this.txtMorse.TextChanged += new System.EventHandler(this.txtMorse_TextChanged);
             // 
+            // timerOneMessage
+            // 
+            this.timerOneMessage.Interval = 10;
+            this.timerOneMessage.Tick += new System.EventHandler(this.timerOneMessage_Tick);
+            // 
+            // lbShowMessage
+            // 
+            this.lbShowMessage.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lbShowMessage.Location = new System.Drawing.Point(807, 15);
+            this.lbShowMessage.Name = "lbShowMessage";
+            this.lbShowMessage.Size = new System.Drawing.Size(243, 560);
+            this.lbShowMessage.TabIndex = 3;
+            // 
+            // timer_ofMessage
+            // 
+            this.timer_ofMessage.Interval = 12000;
+            this.timer_ofMessage.Tick += new System.EventHandler(this.timer_ofMessage_Tick);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LemonChiffon;
             this.ClientSize = new System.Drawing.Size(1078, 584);
+            this.Controls.Add(this.lbShowMessage);
             this.Controls.Add(this.txtMorse);
             this.Controls.Add(this.txtEnglish);
             this.Controls.Add(this.pictureBox1);
@@ -89,6 +112,9 @@
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TextBox txtEnglish;
         private System.Windows.Forms.TextBox txtMorse;
+        private System.Windows.Forms.Timer timerOneMessage;
+        private System.Windows.Forms.Label lbShowMessage;
+        private System.Windows.Forms.Timer timer_ofMessage;
     }
 }
 

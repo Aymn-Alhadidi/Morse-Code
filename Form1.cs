@@ -18,6 +18,30 @@ namespace Test_in_C__Windows_framework_
             InitializeComponent();
         }
 
+        int Counter = 0;
+        string Message = "";
+
+        static string GetRandomMessage()
+        {
+            //Quotes i liked
+            string Message1 = ".- .-.. .-.. / .-. --- .- -.. ... / .-.. . .- -.. / - --- / -.-- --- ..- / . ...- . -. / - .... --- ... . / .. / - --- --- -.- / - --- / ..-. --- .-. --. . - / -.-- --- ..-";
+            string Message2 = ".- -. -.. / .. ..-. / .- / - .... --- ..- ... .- -. -.. / --- - .... . .-. ... / .-.. --- ...- . / -.-- --- ..- / - .... . -.-- / .-- .. .-.. .-.. / --- -. .-.. -.-- / .-.. --- ...- . / -.-- --- ..- / .- / -.. .-. --- .--. / -.-. --- -- .--. .- .-. . -.. / - --- / -- -.-- / --- -.-. . .- -. / --- ..-. / .-.. --- ...- . / ..-. --- .-. / -.-- --- ..-";
+            string Message3 = "-- . . - .. -. --. / -.-- --- ..- / .-- .- ... / .- / -.-. --- .. -. -.-. .. -.. . -. -.-. . --..-- / -... . -.-. --- -- .. -. --. / ..-. .-. .. . -. -.. ... / .-- .- ... / .- / -.-. .... --- .. -.-. . --..-- / -... ..- - / ..-. .- .-.. .-.. .. -. --. / .. -. / .-.. --- ...- . / .-- .. - .... / -.-- --- ..- / .-- .- ... / -... . -.-- --- -. -.. / -- -.-- / -.-. --- -. - .-. --- .-..";
+            string Message4 = ".. / .-- .- -. -. .- / --. --- / -... .- -.-. -.- / - --- / - .... . / - .. -- . / .-- .... . -. / -.-- --- ..- / ..-. .. .-. ... - / - --- .-.. -.. / -- . / -.-- --- ..- .-. / -. .- -- .";
+            string Message5 = ".. ..-. / .- / -- .. .-.. .-.. .. --- -. / .-.. --- ...- . -.. / -.-- --- ..- --..-- / .. .----. -- / --- -. . / --- ..-. / - .... . -- --..-- / .- -. -.. / .. ..-. / --- -. . / .-.. --- ...- . -.. / -.-- --- ..- --..-- / .. - / .-- .- ... / -- . --..-- / .. ..-. / -. --- / --- -. . / .-.. --- ...- . -.. / -.-- --- ..- --..-- / - .... . -. / -.-- --- ..- / -.- -. --- .-- / - .... .- - / .. .----. -- / -.. . .- -..";
+            string Message6 = ".-- .. - .... --- ..- - / -.-- --- ..- / .-.. .. ..-. . / ..-. . . .-.. ... / -- . .- -. .. -. --. .-.. . ... ...";
+            string Message7 = ".-..-. -.-- --- ..- / .- .-. . / . ...- . .-. -.-- / .... --- .--. . / .. / .... .- ...- . / . ...- . .-. / .... .- -.. / .. -. / .... ..- -- .- -. / ..-. --- .-. -- .-..-.";
+            string Message8 = "..-. --- .-. / . ...- . .-. -.-- / -.. .- -.-- / .. / -- .. ... ... / -.-- --- ..- / ..-. --- .-. / . ...- . .-. -.-- / .... --- ..- .-. / .. / -. . . -.. / -.-- --- ..- / ..-. --- .-. / . ...- . .-. -.-- / -- .. -. ..- - . / .. / ..-. . . .-.. / -.-- --- ..- / ..-. --- .-. / . ...- . .-. -.-- / ... . -.-. --- -. -.. / .. / .-- .- -. - / -.-- --- ..- / ..-. --- .-. . ...- . .-. / .. / .-.. --- ...- . / -.-- --- ..-";
+            
+            
+            string[] Messages = { Message1, Message2, Message3, Message4, Message5, Message6, Message7, Message8 };
+            Random randNumber = new Random();
+
+            return Messages[randNumber.Next(0, Messages.Length)];
+
+
+        }
+
         static List<string> SplitString(string Text, string delim)
         {
             List<string> vString = new List<string>();
@@ -42,14 +66,14 @@ namespace Test_in_C__Windows_framework_
 
             return vString;
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             txtEnglish.BackColor = System.Drawing.Color.FromArgb(249, 253, 213);
             txtMorse.BackColor = System.Drawing.Color.FromArgb  (249, 253, 213);
+            timerOneMessage.Enabled = true;
+            timer_ofMessage.Enabled = true;
 
         }
-
 
         public static string LetterToMorse(char letter)
         {
@@ -164,6 +188,36 @@ namespace Test_in_C__Windows_framework_
         private void txtMorse_TextChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void timerOneMessage_Tick(object sender, EventArgs e)
+        {
+
+            if(Counter == Message.Length)
+            {
+                Message = GetRandomMessage();
+                Counter = 0;
+                lbShowMessage.Text = "";
+            }
+
+            else
+            {
+                lbShowMessage.Text += Message[Counter];
+                Counter++;
+            }
+
+            if (Counter == Message.Length)
+            {
+                timerOneMessage.Enabled = false;
+            }
+        }
+
+        private void timer_ofMessage_Tick(object sender, EventArgs e)
+        {
+            if(!timerOneMessage.Enabled)
+            {
+                timerOneMessage.Enabled = true;
+            }
         }
     }
 }
